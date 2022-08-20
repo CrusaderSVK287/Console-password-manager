@@ -40,5 +40,6 @@ void parse(bool* opt, char* arg, char* cmp_short, char* cmp_long);
  * @brief Frees the allocated struct from memory
  * 
  * @param opt options struct to be freed
+ * @return NULL
  */
-void destroy_options(struct options* opt);
+struct options* destroy_options(struct options* opt);

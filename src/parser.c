@@ -5,7 +5,7 @@
 
 struct options* parse_options(int argc ,char** argv) {
     if(argc < 2 || argv == NULL) {
-        fprintf(stderr,"Error occured while parsing options, please check your input format");
+        fprintf(stderr,"Error occured while parsing options, please check your input format\n");
         return NULL;
     }
 
@@ -40,9 +40,10 @@ void parse(bool* opt, char* arg, char* cmp_short, char* cmp_long) {
     }
 }
 
-void destroy_options(struct options* opt) {
+struct options* destroy_options(struct options* opt) {
     if(opt == NULL) {
-        return;
+        return NULL;
     }
     free(opt);
+    return NULL;
 }
