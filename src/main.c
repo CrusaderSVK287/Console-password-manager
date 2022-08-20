@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "headers/parser.h"
 
 int main(int argc, char** argv) {
     if(argc < 2) {
@@ -6,7 +7,8 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    struct options* options = parse_options(argc, argv);
 
-    
+    destroy_options(options);
     return 0;
 }
