@@ -1,7 +1,7 @@
 CC := gcc
 CFLAGS := -Wall -std=c11 -g -MMD -MP -fprofile-arcs -ftest-coverage
-CFILES := src/main.c src/parser.c
-OBJECT_FILES := main.o parser.o	
+CFILES := src/main.c src/parser.c src/setup.c
+OBJECT_FILES := main.o parser.o	setup.o
 TEST_OBJECT_FILES := t_main.o t_options.o
 LDFLAGS := -lgcov --coverage
 
@@ -17,8 +17,8 @@ program:
 	@make cleanup
 
 obj:
-	$(CC) src/main.c $(CFLAGS) $(LDFLAGS) -c
-	$(CC) src/parser.c $(CFLAGS) $(LDFLAGS) -c
+	$(CC) $(CFILES) $(CFLAGS) $(LDFLAGS) -c
+#	$(CC) src/parser.c $(CFLAGS) $(LDFLAGS) -c
 
 cleanup:
 	@rm *.o -f
