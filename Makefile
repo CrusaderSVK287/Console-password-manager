@@ -1,18 +1,18 @@
 CC := gcc
 CFLAGS := -Wall -std=c11 -g -MMD -MP -fprofile-arcs -ftest-coverage
-CFILES := src/main.c src/parser.c src/setup.c
-OBJECT_FILES := main.o parser.o	setup.o
-TEST_OBJECT_FILES := t_main.o t_options.o
 LDFLAGS := -lgcov --coverage
+
+CFILES := src/*.c
+OBJECT_FILES := *.o
+
+TEST_CFILES := tests/*.c
+TEST_OBJECT_FILES := t_*.o
 
 program:
 	@make obj
 	$(CC) $(OBJECT_FILES) $(CFLAGS) -o build/build.out
-#
-#	Program starts here
-#
 	@echo ---------------
-	./build/build.out help
+	@./build/build.out help
 	@echo ---------------
 	@make cleanup
 
@@ -28,8 +28,7 @@ cleanup:
 	@rm *.gcov -f
 
 test_obj:
-	$(CC) tests/t_main.c $(CFLAGS) $(LDFLAGS) -c
-	$(CC) tests/t_options.c $(CFLAGS) $(LDFLAGS) -c
+	$(CC) $(TEST_CFILES) $(CFLAGS) $(LDFLAGS) -c
 
 test:
 	@make test_obj
