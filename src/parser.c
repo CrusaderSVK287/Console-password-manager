@@ -5,7 +5,7 @@
 
 struct options* parse_options(int argc ,char** argv) {
     if(argc < 2 || argv == NULL) {
-        fprintf(stderr,"Error occured while parsing options, please check your input format\n");
+        fprintf(stderr,"Not enough arguments, please check your input format\n");
         return NULL;
     }
 
