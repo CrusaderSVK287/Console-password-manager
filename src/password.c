@@ -1,4 +1,5 @@
 #include "headers/password.h"
+#include "headers/string_colors.h"
 
 char* get_password() {
     char* out = calloc(128,sizeof(char));
