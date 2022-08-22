@@ -4,6 +4,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define PASSL_WEAK 1
+#define PASSL_DECENT 2
+#define PASSL_STRONG 3
+
 /**
  * @brief Get the password from the user in plain text
  * 
@@ -29,3 +33,13 @@ bool is_password_valid(char* password);
  * @return char pointer to hash of the given password
  */
 char* hash256(char* password);
+
+/**
+ * @brief function prints to the stdout information about current password security level.
+ * 
+ * @param level level of password security. 1 - weak, 2 - decent, 3 - strong
+ * 
+ * @return true if level is 3
+ * @return false if level is less than 3 
+ */
+bool print_password_security_level(int level);

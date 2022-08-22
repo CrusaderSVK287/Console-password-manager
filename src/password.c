@@ -9,6 +9,11 @@ char* get_password() {
 
 bool is_password_valid(char* password) {
     int len = strlen(password);
+
+    if(len < 9) {
+        
+    }
+
     return true;
 }
 
