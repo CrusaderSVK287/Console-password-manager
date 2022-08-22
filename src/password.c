@@ -66,7 +66,6 @@ bool print_password_security_level(int level) {
         scanf("%c",&choice);
         fflush(stdin);
         return (choice == 'y' || choice == 'Y');
-        printf("WHY THE FUCK???");
     case 0:
     case PASSL_WEAK:
         printf("%sThis password is weak. Password must be at least 8 characters long and contain at least two of these:\n\
