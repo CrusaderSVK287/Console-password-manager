@@ -24,6 +24,8 @@ void setup() {
     mkdir(DATA_DIR,0777);
     #endif
 
+    printf("Set you master password. This password will be used to access stored passwords that were flaged as protected during creation \
+    .\nPassword must be between 8 to 127 characters long and it must contain two of these:\n-Uppercase and lowercase letter\n-Number\n-Special character (!, @, #, $, %%, ^, &, *, _)\n");
     char* password = NULL;
     do {
         if(password != NULL) {
@@ -32,6 +34,7 @@ void setup() {
         printf("Set master password: ");
         password = get_password();
     } while (!is_password_valid(password));
+    printf("%sMaster password has been set!\n%s"STRC_GREEN,STRC_DEFAULT);
 
     FILE* hash_file = fopen(MASTER_PASSWORD_HASH_FILE,"w");
     char* hash = hash256(password);

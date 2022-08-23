@@ -2,7 +2,9 @@
 
 char* get_password() {
     char* out = calloc(128,sizeof(char));
-    fgets(out,128,stdin);
+    out[127] = 0x00;
+    fgets(out,127,stdin);
+    fflush(stdin);
     return out;
 }
 
@@ -94,6 +96,5 @@ char* hash256(char* password) {
         if(out[a] > '9') out[a] += 39;
         if(out[b] > '9') out[b] += 39;
     }
-    printf("\n%s\n",out);
     return out;
 }

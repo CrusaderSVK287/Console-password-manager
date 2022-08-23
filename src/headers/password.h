@@ -34,7 +34,8 @@ bool is_password_valid(char* password);
  * @param level level of password security. 1 - weak, 2 - decent, 3 - strong
  * 
  * @return true if level is 3
- * @return false if level is less than 3 
+ * @return false if level is 1 
+ * @return eighter depending on user choice if level is 2
  */
 bool print_password_security_level(int level);
 
