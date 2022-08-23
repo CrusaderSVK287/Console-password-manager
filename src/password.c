@@ -1,5 +1,4 @@
 #include "headers/password.h"
-#include "headers/string_colors.h"
 
 char* get_password() {
     char* out = calloc(128,sizeof(char));
@@ -28,6 +27,7 @@ bool is_password_valid(char* password) {
             break;
         case '0'...'9': has_number = true;
             break;
+        case '_':   //fallthrough
         case '!':   //fallthrough
         case '@':   //fallthrough
         case '^':   //fallthrough
@@ -67,7 +67,7 @@ bool print_password_security_level(int level) {
         printf("%sThis password is weak. Password must be at least 8 characters long and contain at least two of these:\n\
         - One uppercase and one lowercase letter\n\
         - a number\n\
-        - a special character (!, @, #, $, %%, ^, &, *)\n%s",STRC_RED,STRC_DEFAULT);
+        - a special character (!, @, #, $, %%, ^, &, *, _)\n%s",STRC_RED,STRC_DEFAULT);
         return false;
     default:
         fprintf(stderr,"Invalid password security level\n");
@@ -80,5 +80,17 @@ char* hash256(char* password) {
     if(password == NULL) {
         return NULL;
     }
-    return NULL;
+    char* out = calloc(65,sizeof(char));
+    out[64] = 0x00;
+    uint8_t hash[32];
+    calc_sha_256(hash,password,strlen(password));
+    for (int i = 0; i < 32; i++){
+        out[i*2] = ((hash[i] >> 4) & 0x0f) + '0';
+        out[(i*2)+1] = (hash[i] & 0x0f) + '0';
+
+        if(out[i*2] > '9') out[i*2] += 39;
+        if(out[(i*2)+1] > '9') out[(i*2)+1] += 39;
+    }
+
+    return out;
 }

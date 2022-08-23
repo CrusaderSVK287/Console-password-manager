@@ -3,6 +3,8 @@
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
+#include "string_colors.h"
+#include "../../lib/sha-256.h"
 
 #define PASSL_WEAK 1
 #define PASSL_DECENT 2

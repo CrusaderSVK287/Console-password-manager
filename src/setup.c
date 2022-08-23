@@ -26,11 +26,17 @@ void setup() {
 
     char* password = NULL;
     do {
+        if(password != NULL) {
+            free(password);
+        }
         printf("Set master password: ");
         password = get_password();
     } while (!is_password_valid(password));
 
     FILE* hash_file = fopen(MASTER_PASSWORD_HASH_FILE,"w");
-    fprintf(hash_file,"%s",hash256(password));
+    char* hash = hash256(password);
+    fprintf(hash_file,"%s",hash);
     fclose(hash_file);
+
+    free(hash);
 }

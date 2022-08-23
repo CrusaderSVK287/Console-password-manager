@@ -4,7 +4,7 @@ CC := gcc
 CFLAGS := -Wall -std=c11 -g -MMD -MP -fprofile-arcs -ftest-coverage
 LDFLAGS := -lgcov --coverage
 
-CFILES := src/*.c
+CFILES := src/*.c lib/*.c
 OBJECT_FILES := *.o
 
 TEST_CFILES := tests/*.c
