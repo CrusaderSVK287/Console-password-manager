@@ -27,14 +27,6 @@ char* get_password();
 bool is_password_valid(char* password);
 
 /**
- * @brief Function hashes given password using SHA256 and returns character pointer to said hash
- * 
- * @param password password to be hashed
- * @return char pointer to hash of the given password
- */
-char* hash256(char* password);
-
-/**
  * @brief function prints to the stdout information about current password security level.
  * 
  * @param level level of password security. 1 - weak, 2 - decent, 3 - strong
@@ -43,3 +35,11 @@ char* hash256(char* password);
  * @return false if level is less than 3 
  */
 bool print_password_security_level(int level);
+
+/**
+ * @brief Function hashes given password using SHA256 and returns character pointer to said hash
+ * 
+ * @param password password to be hashed
+ * @return char pointer to hash of the given password
+ */
+char* hash256(char* password);

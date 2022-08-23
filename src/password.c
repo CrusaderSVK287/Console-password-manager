@@ -50,10 +50,6 @@ bool is_password_valid(char* password) {
     return print_password_security_level(security_level);
 }
 
-char* hash256(char* password) {
-    return password;
-}
-
 bool print_password_security_level(int level) {
     switch (level)
     {
@@ -78,4 +74,11 @@ bool print_password_security_level(int level) {
         break;
     }
     return false;
+}
+
+char* hash256(char* password) {
+    if(password == NULL) {
+        return NULL;
+    }
+    return NULL;
 }
