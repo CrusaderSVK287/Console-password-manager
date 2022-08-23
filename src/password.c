@@ -85,12 +85,15 @@ char* hash256(char* password) {
     uint8_t hash[32];
     calc_sha_256(hash,password,strlen(password));
     for (int i = 0; i < 32; i++){
-        out[i*2] = ((hash[i] >> 4) & 0x0f) + '0';
-        out[(i*2)+1] = (hash[i] & 0x0f) + '0';
+        int a = i*2;
+        int b = (i*2)+1;
 
-        if(out[i*2] > '9') out[i*2] += 39;
-        if(out[(i*2)+1] > '9') out[(i*2)+1] += 39;
+        out[a] = ((hash[i] >> 4) & 0x0f) + '0';
+        out[b] = (hash[i] & 0x0f) + '0';
+
+        if(out[a] > '9') out[a] += 39;
+        if(out[b] > '9') out[b] += 39;
     }
-
+    printf("\n%s\n",out);
     return out;
 }
