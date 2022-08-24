@@ -1,5 +1,7 @@
 #include <stdbool.h>
 #include "defines.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * @brief struct contains flags that were set while executing program.
@@ -27,4 +29,4 @@ struct options {
  * @return true if everything is validated
  * @return false otherwise;
  */
-bool options_valid(bool list, bool force, bool help, bool protect, struct options* opt);
+bool are_options_valid(bool list, bool force, bool help, bool protect, struct options* opt);
