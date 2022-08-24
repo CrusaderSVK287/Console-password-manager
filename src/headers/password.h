@@ -3,7 +3,7 @@
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
-#include "string_colors.h"
+#include "defines.h"
 #include "../../lib/sha-256.h"
 
 #define PASSL_WEAK 1
@@ -50,8 +50,15 @@ char* hash256(char* password);
 /**
  * @brief Function takes input from user, hashes it and compares the produced hash with the stored one
  * 
- * @param input is optiotional input string. can be Null.
  * @return true if hashes match
  * @return false if they do not
  */
-bool check_password(char* input);
+bool check_password();
+
+/**
+ * @brief Get the storred password hash from file
+ * 
+ * @param path path to the file containing single hash
+ * @return Character pointer to the string containing the hash
+ */
+char* get_storred_hash(char* path);

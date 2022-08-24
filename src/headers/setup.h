@@ -5,9 +5,10 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include "password.h"
+#include "defines.h"
 
-#define DATA_DIR ".password_manager_data"
-#define MASTER_PASSWORD_HASH_FILE ".password_manager_data/master_password_hash_code"
+
 
 /**
  * @brief Function checks for the presence of the required files, namely the data folder and

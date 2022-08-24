@@ -1,7 +1,4 @@
 #include "headers/parser.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 struct options* parse_options(int argc ,char** argv) {
     if(argc < 2 || argv == NULL) {

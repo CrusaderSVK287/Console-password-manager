@@ -86,7 +86,7 @@ char* hash256(char* password) {
     out[64] = 0x00;
     uint8_t hash[32];
     calc_sha_256(hash,password,strlen(password));
-    for (int i = 0; i < 32; i++){
+    for (int i = 0; i < 32; i++){   //tranforms the uint8_t hash array to string in hexadecimal format
         int a = i*2;
         int b = (i*2)+1;
 
@@ -99,6 +99,33 @@ char* hash256(char* password) {
     return out;
 }
 
-bool check_password(char* input) {
-    
+bool check_password() {
+    printf("Please enter master password: ");
+    char* password = get_password();
+    char* input_hash = hash256(password);
+    char* control_hash = get_storred_hash(MASTER_PASSWORD_HASH_FILE);
+    bool out;
+    if (strncmp(input_hash, control_hash, 64) == 0) {
+        out = true;
+    } else {
+        fprintf(stderr, "%sIncorrect password!%s\n", STRC_RED, STRC_DEFAULT);
+        out = false;
+    }
+    free(password);
+    free(input_hash);
+    free(control_hash);
+    return out;
+}
+
+char* get_storred_hash(char* path) {
+    FILE* file = fopen(path,"r");
+    if(!file) {
+        return NULL;
+    }
+
+    char* hash = calloc(65,sizeof(char));
+    hash[64] = 0x00;
+    fgets(hash,65,file);
+    fclose(file);
+    return hash;
 }

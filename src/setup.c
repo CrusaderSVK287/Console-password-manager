@@ -1,5 +1,4 @@
 #include "headers/setup.h"
-#include "headers/password.h"
 
 bool check_required_files() {
     DIR* data_dir = opendir(DATA_DIR);
@@ -34,12 +33,14 @@ void setup() {
         printf("Set master password: ");
         password = get_password();
     } while (!is_password_valid(password));
-    printf("%sMaster password has been set!\n%s"STRC_GREEN,STRC_DEFAULT);
 
     FILE* hash_file = fopen(MASTER_PASSWORD_HASH_FILE,"w");
+    if(!hash_file) {
+        return;
+    }
     char* hash = hash256(password);
     fprintf(hash_file,"%s",hash);
     fclose(hash_file);
-
+    printf("%sMaster password has been set!\n%s",STRC_GREEN,STRC_DEFAULT);
     free(hash);
 }
