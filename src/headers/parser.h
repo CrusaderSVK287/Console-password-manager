@@ -3,20 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
-/**
- * @brief struct contains flags that were set while executing program.
- * 
- *      list - shows list of saved passwords
- *      force - forces action without asking for confirmations
- *      help - shows help page for action
- *      protect - sets passwords to be password protected by the master password
- */
-struct options {
-    bool list;
-    bool force;
-    bool help;
-    bool protect;
-};
+#include "headers/options.h"
+#include "headers/new.h"
 
 /**
  * @brief function creates a options struct, goes through all arguments and sets the appropriate
@@ -53,4 +41,4 @@ struct options* destroy_options(struct options* opt);
  * @param arg argument given by the command line, typicaly the seconds one 
  * @param opt options struct to get all the options
  */
-void run_command(char* arg, struct options* opt);
+void run_command(char** args, struct options* opt);
