@@ -46,3 +46,11 @@ void parse(bool* opt, char* arg, char* cmp_short, char* cmp_long);
  * @return NULL
  */
 struct options* destroy_options(struct options* opt);
+
+/**
+ * @brief Function parses and runs a command based on given argument. In case a wrong command has been given, displays an error message
+ * 
+ * @param arg argument given by the command line, typicaly the seconds one 
+ * @param opt options struct to get all the options
+ */
+void run_command(char* arg, struct options* opt);

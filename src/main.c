@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
     }
 
     struct options* options = parse_options(argc, argv);
-
+    
     destroy_options(options);
     return 0;
 }
