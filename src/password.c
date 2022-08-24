@@ -98,3 +98,7 @@ char* hash256(char* password) {
     }
     return out;
 }
+
+bool check_password(char* input) {
+    
+}

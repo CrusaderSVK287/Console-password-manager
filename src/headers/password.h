@@ -46,3 +46,12 @@ bool print_password_security_level(int level);
  * @return char pointer to hash of the given password
  */
 char* hash256(char* password);
+
+/**
+ * @brief Function takes input from user, hashes it and compares the produced hash with the stored one
+ * 
+ * @param input is optiotional input string. can be Null.
+ * @return true if hashes match
+ * @return false if they do not
+ */
+bool check_password(char* input);
