@@ -6,9 +6,7 @@
 #include "defines.h"
 #include "../../lib/sha-256.h"
 
-#define PASSL_WEAK 1
-#define PASSL_DECENT 2
-#define PASSL_STRONG 3
+
 
 /**
  * @brief Get the password from the user in plain text

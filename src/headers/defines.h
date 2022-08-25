@@ -11,3 +11,7 @@
 
 #define DATA_DIR ".password_manager_data"
 #define MASTER_PASSWORD_HASH_FILE ".password_manager_data/master_password_hash_code"
+
+#define PASSL_WEAK 1
+#define PASSL_DECENT 2
+#define PASSL_STRONG 3
