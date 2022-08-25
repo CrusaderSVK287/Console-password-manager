@@ -31,7 +31,7 @@ void setup() {
             free(password);
         }
         printf("Set master password: ");
-        password = get_password();
+        password = get_input(128);
     } while (!is_password_valid(password));
 
     FILE* hash_file = fopen(MASTER_PASSWORD_HASH_FILE,"w");

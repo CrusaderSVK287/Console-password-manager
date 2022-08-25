@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "headers/options.h"
-#include "headers/new.h"
+#include "new.h"
 
 /**
  * @brief function creates a options struct, goes through all arguments and sets the appropriate

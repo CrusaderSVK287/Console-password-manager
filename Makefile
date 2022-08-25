@@ -10,6 +10,7 @@ OBJECT_FILES := *.o
 TEST_CFILES := tests/*.c
 TEST_OBJECT_FILES := t_*.o
 
+ARGS?=   
 
 ### MAIN PROGRAM ###
 
@@ -18,7 +19,7 @@ program:
 	@make obj
 	$(CC) $(OBJECT_FILES) $(CFLAGS) -o build/build.out
 	@echo ---------------
-	@./build/build.out help
+	@./build/build.out $(ARGS)
 	@echo ---------------
 	@make cleanup
 
@@ -45,7 +46,7 @@ test_obj:
 test:
 	@make test_obj
 	$(CC) $(TEST_OBJECT_FILES) $(CFLAGS) $(LDFLAGS) -o build/tests.out
-	./build/tests.out
+	./build/tests.out $(ARGS)
 	@make coverage
 	@make cleanup
 
@@ -60,7 +61,7 @@ coverage:
 mem:
 	@make memory
 
-#builds and runs program with valgring
+#builds and runs program with valgrind
 memory:
 	@make obj
 	$(CC) $(OBJECT_FILES) $(CFLAGS) -o build/build.out

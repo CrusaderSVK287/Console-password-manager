@@ -13,9 +13,10 @@
 /**
  * @brief Get the password from the user in plain text
  * 
+ * @param lenght max lenght of the input
  * @return pointer to the typed password
  */
-char* get_password();
+char* get_input(int lenght);
 
 /**
  * @brief function checks whether the password is strong enough and gives feedback

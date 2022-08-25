@@ -1,9 +1,9 @@
 #include "headers/password.h"
 
-char* get_password() {
-    char* out = calloc(128,sizeof(char));
-    out[127] = 0x00;
-    fgets(out,127,stdin);
+char* get_input(int lenght) {
+    char* out = calloc(lenght+1,sizeof(char));
+    out[lenght] = 0x00;
+    fgets(out,lenght,stdin);
     fflush(stdin);
     return out;
 }
@@ -101,7 +101,7 @@ char* hash256(char* password) {
 
 bool check_password() {
     printf("Please enter master password: ");
-    char* password = get_password();
+    char* password = get_input(128);
     char* input_hash = hash256(password);
     char* control_hash = get_storred_hash(MASTER_PASSWORD_HASH_FILE);
     bool out;

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "headers/parser.h"
 #include "headers/setup.h"
-#include "headers/options.h"
 
 int main(int argc, char** argv) {
     if(!check_required_files()) {
