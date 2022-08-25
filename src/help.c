@@ -6,11 +6,12 @@ void command_help(struct options* opt) {
     }
     help_command_help();
     help_command_new();
+    help_command_list();
 }
 
 void help_command_help() {
     printf("%sCommand:%s help\n",STRC_CYAN,STRC_DEFAULT);
-    printf("\tThis command prints help pages for all commands.\n\tOptitional flags: NONE\n");
+    printf("\tThis command prints help pages for all commands.\n\tOptitional flags: NONE\n\n");
 }
 
 void help_command_new() {
@@ -21,5 +22,10 @@ void help_command_new() {
     "\tUser is than prompted to enter the password to be stored. Password is then encrypted and stored.\n\tOptitional flags: \n\t");
     printf("%s-l --list :%s Shows list of names of all currently stored passwords\n\t",STRC_YELLOW,STRC_DEFAULT);
     printf("%s-p --protect :%s Protects your password by requiring the master password in order to access it\n\t",STRC_YELLOW,STRC_DEFAULT);
-    printf("%s-h --help :%s Shows the help page for this command\n",STRC_YELLOW,STRC_DEFAULT);
+    printf("%s-h --help :%s Shows the help page for this command\n\n",STRC_YELLOW,STRC_DEFAULT);
+}
+
+void help_command_list() {
+    printf("%sCommand:%s list\n",STRC_CYAN,STRC_DEFAULT);
+    printf("\tLists all stored passwords names.\n\tRegular passwords are shown in green.\n\tProtected passwords are shown in yellow\n\n");
 }

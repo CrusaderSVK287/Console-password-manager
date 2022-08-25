@@ -17,11 +17,7 @@ void command_help(struct options* opt);
  * 
  */
 void help_command_help();
-
-/**
- * @brief help page for new command
- * 
- */
 void help_command_new();
+void help_command_list();
 
 #endif

@@ -3,6 +3,8 @@
 
 #include "defines.h"
 #include "options.h"
+#include "help.h"
+
 #include <dirent.h> 
 #include <stdio.h>
 #include <stdbool.h>
