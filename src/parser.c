@@ -51,7 +51,7 @@ void run_command(char** args, struct options* opt) {
     }
     if(strcmp(args[1], "new") == 0) command_new(opt);  // new
     if(strcmp(args[1], "help") == 0) command_help(opt);// help
-    //if(strcmp(args[1], "new") == 0) new();// list
+    if(strcmp(args[1], "list") == 0) command_list(opt);// list
     //if(strcmp(args[1], "new") == 0) new();// delete
     //if(strcmp(args[1], "new") == 0) new();// clear
     //if(strcmp(args[1], "new") == 0) new();// edit

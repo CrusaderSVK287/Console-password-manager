@@ -6,6 +6,7 @@
 #include <dirent.h> 
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 /**
  * @brief Function prints all files in a directory, excluding the master_password_hash_file
