@@ -5,20 +5,20 @@ bool are_options_valid(bool list, bool force, bool help, bool protect, struct op
         return false;
     }
     bool valid = true;
-    if(opt->list != list) {
-        fprintf(stderr,"--list -l is not a valid option\n");
+    if(opt->list == true && list == false) {
+        fprintf(stderr,"--list is not a valid option\n");
         valid = false;
     }
-    if(opt->force != force) {
-        fprintf(stderr,"--force -f is not a valid option\n");
+    if(opt->force == true && force == false) {
+        fprintf(stderr,"--force is not a valid option\n");
         valid = false;
     }
-    if(opt->help != help) {
-        fprintf(stderr,"--help -h is not a valid option\n");
+    if(opt->help == true && help == false) {
+        fprintf(stderr,"--help is not a valid option\n");
         valid = false;
     }
-    if(opt->protect != protect) {
-        fprintf(stderr,"--protect -p is not a valid option\n");
+    if(opt->protect == true && protect == false) {
+        fprintf(stderr,"--protect is not a valid option\n");
         valid = false;
     }
     return valid;

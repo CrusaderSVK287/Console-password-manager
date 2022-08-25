@@ -6,12 +6,12 @@ void command_new(struct options* opts) {
     }
     printf("Name of password (Max 128 characters long): ");
     char* name = get_input(128);
-    char* folder = calloc(128+24,sizeof(char));
-    strncpy(folder,".password_manager_data/",24);
-    strcat(folder, name);
-    if (access(".", F_OK) == 0) {
-        fprintf(stderr,"This name already exists!\n");
+    char* file_name = calloc(128+24,sizeof(char));
+    strncpy(file_name,".password_manager_data/",24);
+    strcat(file_name, name);
+    if (access(file_name, F_OK) == 0) {
+        fprintf(stderr,"Password with the same name already exists!\n");
         return;
     }
-    printf("go ahead\n");
+
 }

@@ -5,6 +5,7 @@ char* get_input(int lenght) {
     out[lenght] = 0x00;
     fgets(out,lenght,stdin);
     fflush(stdin);
+    out[strlen(out)-1] = 0x00;  //replaces the new line symbol at the end of input with a terminator
     return out;
 }
 
