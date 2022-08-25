@@ -4,6 +4,9 @@ void command_new(struct options* opts) {
     if(!are_options_valid(true,false,true,true,opts)) {
         return;
     }
+
+    if(opts->help) help_command_new();
+
     printf("Name of password (Max 128 characters long): ");
     char* name = get_input(128);
     char* file_name = calloc(128+24,sizeof(char));

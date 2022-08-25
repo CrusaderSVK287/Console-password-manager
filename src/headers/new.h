@@ -1,7 +1,6 @@
 #include "defines.h"
 #include "options.h"
 #include "password.h"
-//#include "help.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
