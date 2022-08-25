@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "new.h"
+#include "help.h"
 
 /**
  * @brief function creates a options struct, goes through all arguments and sets the appropriate
