@@ -15,3 +15,12 @@
 #define PASSL_WEAK 1
 #define PASSL_DECENT 2
 #define PASSL_STRONG 3
+
+/**
+ * @brief Function replaces old chars with new in the given string
+ * 
+ * @param str input string
+ * @param old char to be replaced
+ * @param new char to be put in the place of old chars
+ */
+void string_replace(char* str, char old, char new);

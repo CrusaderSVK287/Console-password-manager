@@ -9,6 +9,9 @@ void command_new(struct options* opts) {
     char* file_name = calloc(128+24,sizeof(char));
     strncpy(file_name,".password_manager_data/",24);
     strcat(file_name, name);
+
+    string_replace(file_name,' ','_');
+
     if (access(file_name, F_OK) == 0) {
         fprintf(stderr,"Password with the same name already exists!\n");
         return;
