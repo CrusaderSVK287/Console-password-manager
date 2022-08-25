@@ -1,3 +1,7 @@
+
+#ifndef HELP_H
+#define HELP_H
+
 #include "defines.h"
 #include "options.h"
 #include <stdio.h>
@@ -14,4 +18,10 @@ void command_help(struct options* opt);
  */
 void help_command_help();
 
+/**
+ * @brief help page for new command
+ * 
+ */
 void help_command_new();
+
+#endif

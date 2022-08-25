@@ -1,3 +1,6 @@
+#ifndef OPTIONS_H
+#define OPTIONS_H
+
 #include <stdbool.h>
 #include "defines.h"
 #include <stdlib.h>
@@ -30,3 +33,5 @@ struct options {
  * @return false otherwise;
  */
 bool are_options_valid(bool list, bool force, bool help, bool protect, struct options* opt);
+
+#endif

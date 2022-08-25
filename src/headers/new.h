@@ -1,6 +1,10 @@
+#ifndef NEW_H
+#define NEW_H
+
 #include "defines.h"
 #include "options.h"
 #include "password.h"
+#include "help.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,3 +22,5 @@
  * Options: --list -l -help -h --protect -p
  */
 void command_new(struct options* opts);
+
+#endif
