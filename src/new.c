@@ -14,4 +14,11 @@ void command_new(struct options* opts) {
         return;
     }
 
+    printf("Enter your password (max 128 characters long): ");
+    //char* plain_password = get_input(128);
+
+    FILE* file = fopen(file_name,"w");
+    //char* encrypted = encrypt(plain_password);
+    //fprintf(file,encrypted);
+    fclose(file);
 }
