@@ -36,7 +36,6 @@ void command_delete(char** args, int argc ,struct options* opts) {
     if(access(file_to_delete,F_OK) != 0) {
         strcat(file_to_delete, "_PROTECT");
         if(access(file_to_delete,F_OK) != 0) {
-            printf("%s\n",file_to_delete);
             fprintf(stderr,"%sPassword with the name \"%s\" does not exist, please check your spelling.%s\n", STRC_RED, file_to_delete_from_args, STRC_DEFAULT);
             free(file_to_delete);
             return;
