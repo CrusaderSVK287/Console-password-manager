@@ -6,6 +6,7 @@
 #include "new.h"
 #include "list.h"
 #include "help.h"
+#include "delete.h"
 
 /**
  * @brief function creates a options struct, goes through all arguments and sets the appropriate
@@ -42,4 +43,4 @@ struct options* destroy_options(struct options* opt);
  * @param arg argument given by the command line, typicaly the seconds one 
  * @param opt options struct to get all the options
  */
-void run_command(char** args, struct options* opt);
+void run_command(int argc, char** args, struct options* opt);
