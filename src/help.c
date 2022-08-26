@@ -27,5 +27,7 @@ void help_command_new() {
 
 void help_command_list() {
     printf("%sCommand:%s list\n",STRC_CYAN,STRC_DEFAULT);
-    printf("\tLists all stored passwords names.\n\tRegular passwords are shown in green.\n\tProtected passwords are shown in yellow\n\n");
+    printf("\tLists all stored passwords names.\n\tRegular passwords are shown in green.\n\tProtected passwords are shown in yellow\n");
+    printf("\tOptitional flags:\n\t");
+    printf("%s-h --help :%s Shows the help page for this command\n\n",STRC_YELLOW,STRC_DEFAULT);
 }
