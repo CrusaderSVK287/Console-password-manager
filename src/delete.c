@@ -4,7 +4,9 @@ void command_delete(char** args, int argc ,struct options* opts) {
     if(!are_options_valid(false,true,true,false,opts)) {
         return;
     }
+    if(opts->help) help_command_delete();
 
+    //check whether a file name argument was given
     char* file_to_delete_from_args = NULL;
     for (int i = 2; i < argc; i++) {
         if(args[i][0] == '-') {
@@ -19,8 +21,15 @@ void command_delete(char** args, int argc ,struct options* opts) {
         fprintf(stderr, "%sPlease specify the name of the password you wish to delete. Use \"delete name_of_password\"%s\n", STRC_RED,STRC_DEFAULT);
         return;
     }
+    if(strcmp(file_to_delete_from_args, MASTER_PASSWORD_FILE_NAME) == 0 ) {
+        fprintf(stderr, "%s*** ERROR: THIS FILE MUST NOT BE DELETED! ***%s\n", STRC_RED, STRC_DEFAULT);
+        return;
+    }
 
-    char* file_to_delete = calloc(strlen(file_to_delete_from_args)+strlen(DATA_DIR_SLASH)+strlen("_PROTECT")+1, sizeof(char));
+
+    // total lenght accounts for ".password_manager_data/ + file_name + _PROTECT + \0"
+    string_replace(file_to_delete_from_args,' ','_');   //replace spaces with underscores
+    char* file_to_delete = calloc(strlen(DATA_DIR_SLASH)+strlen(file_to_delete_from_args)+strlen("_PROTECT")+1, sizeof(char));
     strcpy(file_to_delete, DATA_DIR_SLASH);
     strcat(file_to_delete, file_to_delete_from_args);
 

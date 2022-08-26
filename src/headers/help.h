@@ -19,5 +19,6 @@ void command_help(struct options* opt);
 void help_command_help();
 void help_command_new();
 void help_command_list();
+void help_command_delete();
 
 #endif
