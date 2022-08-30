@@ -1,6 +1,6 @@
 #include "headers/clear.h"
 
-void command_clear(struct options* opts, int argc, char** args) {
+void command_clear(char** args, int argc, struct options* opts) {
     if(!are_options_valid(false,false,true,false,opts)) {
         return;
     }

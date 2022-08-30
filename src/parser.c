@@ -54,12 +54,11 @@ void run_command(int argc, char** args, struct options* opt) {
     if( args == NULL || opt == NULL) {
         return;
     }
-    if(strcmp(args[1], "new") == 0) return command_new(opt);  // new
-    if(strcmp(args[1], "help") == 0) return command_help(opt);// help
-    if(strcmp(args[1], "list") == 0) return command_list(opt);// list
-    if(strcmp(args[1], "delete") == 0) return command_delete(args, argc, opt);// delete
-    if(strcmp(args[1], "clear") == 0) return command_clear(opt, argc, args);// clear
-    //if(strcmp(args[1], "new") == 0) new();// edit
+    if(strcmp(args[1], "new") == 0) return command_new(opt);                    // new
+    if(strcmp(args[1], "help") == 0) return command_help(opt);                  // help
+    if(strcmp(args[1], "list") == 0) return command_list(opt);                  // list
+    if(strcmp(args[1], "delete") == 0) return command_delete(args, argc, opt);  // delete
+    if(strcmp(args[1], "clear") == 0) return command_clear(args, argc, opt);    // clear
     //if(strcmp(args[1], "new") == 0) new();// reset
     //if(strcmp(args[1], "new") == 0) new();// get
     fprintf(stderr, "Command %s%s%s is not recognised, use command \"help\" to see all available commands\n",STRC_CYAN,args[1],STRC_DEFAULT);

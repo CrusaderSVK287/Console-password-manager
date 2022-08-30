@@ -17,7 +17,7 @@
  * @param argc number of arguments given in the command line pattern
  * @param opts options struct containing selected options 
  */
-void command_clear(struct options* opts, int argc, char** args);
+void command_clear(char** args, int argc, struct options* opts);
 
 /**
  * @brief Function evaluates whether the file with the given name should be deleted
