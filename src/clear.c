@@ -5,7 +5,7 @@ void command_clear(struct options* opts, int argc, char** args) {
         return;
     }
 
-    printf("Warning, this action will delete all stored passwords NOT specified as arguments, to proced please enter the master password\n");
+    printf("Warning, this action will delete all stored passwords NOT specified as arguments, to proceed please enter the master password\n");
     if(!check_password()) {
         return;
     }
@@ -19,10 +19,16 @@ void command_clear(struct options* opts, int argc, char** args) {
                 strcmp(dir->d_name, "..") == 0 ||
                 strcmp(dir->d_name, "master_password_hash_code") == 0) {
                     continue;
-                } 
+                }
+ 
+            char* file_to_remove = calloc(strlen(dir->d_name) + strlen(DATA_DIR_SLASH), sizeof(char));
+            strcpy(file_to_remove,DATA_DIR_SLASH);
+            strcat(file_to_remove,dir->d_name);
+
             if(can_be_deleted(argc, args, dir->d_name)) {
-                remove(dir->d_name);
+                remove(file_to_remove);
             }
+            free(file_to_remove);
         }
         closedir(d);
     }
