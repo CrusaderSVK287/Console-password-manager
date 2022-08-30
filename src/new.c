@@ -14,6 +14,11 @@ void command_new(struct options* opts) {
         free(name);
         return;
     }
+    if(strstr(name,"_PROTECT") != NULL) {
+        fprintf(stderr, "Name cannot contain \"_PROTECT\"\n");
+        free(name);
+        return;
+    }
 
     char* file_name = calloc(128+24+8,sizeof(char));
     strncpy(file_name,".password_manager_data/",24);
