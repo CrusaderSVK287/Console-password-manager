@@ -18,23 +18,28 @@ struct options* parse_options(int argc ,char** argv) {
         if( arg[0] != '-' ) {
             continue;
         }
-        parse(&out->force,  arg,"-f","--force");
-        parse(&out->help,   arg,"-h","--help");
-        parse(&out->list,   arg,"-l","--list");
-        parse(&out->protect,arg,"-p","--protect");
+        if(parse(&out->force,  arg,"-f","--force")) continue;
+        if(parse(&out->help,   arg,"-h","--help")) continue;
+        if(parse(&out->list,   arg,"-l","--list")) continue;
+        if(parse(&out->protect,arg,"-p","--protect")) continue;
+        free(out);
+        fprintf(stderr, "%sERROR: %s'%s' is not a valid option\n", STRC_RED, STRC_DEFAULT, argv[i]);
+        return NULL;
     }
     return out;
 }
 
-void parse(bool* opt, char* arg, char* cmp_short, char* cmp_long) {
+bool parse(bool* opt, char* arg, char* cmp_short, char* cmp_long) {
     if(opt == NULL || arg == NULL || cmp_short == NULL || cmp_long == NULL) {
-        return;
+        return false;
     }
 
     if( strcmp(arg,cmp_short) == 0 ||
         strcmp(arg,cmp_long) == 0) {
             *opt = true;
+        return true;
     }
+    return false;
 }
 
 struct options* destroy_options(struct options* opt) {

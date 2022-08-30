@@ -28,7 +28,7 @@ struct options* parse_options(int argc ,char** argv);
  * @param cmp_short string that the argument is being compared to, short e.g. -f
  * @param cmp_long string that the argument is being compared to, long e.g. --force
  */
-void parse(bool* opt, char* arg, char* cmp_short, char* cmp_long);
+bool parse(bool* opt, char* arg, char* cmp_short, char* cmp_long);
 
 /**
  * @brief Frees the allocated struct from memory

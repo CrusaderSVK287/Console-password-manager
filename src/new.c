@@ -9,6 +9,12 @@ void command_new(struct options* opts) {
 
     printf("Name of password (Max 128 characters long): ");
     char* name = get_input(128);
+    if(name[0] == '-') {
+        fprintf(stderr, "Name cannot start with '-'\n");
+        free(name);
+        return;
+    }
+
     char* file_name = calloc(128+24+8,sizeof(char));
     strncpy(file_name,".password_manager_data/",24);
     strcat(file_name, name);
