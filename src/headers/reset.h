@@ -5,7 +5,9 @@
 #include "help.h"
 #include "options.h"
 #include "password.h"
+#include "setup.h"
 #include <stdio.h>
+#include <dirent.h>
 
 /**
  * @brief Fuction deletes all protected passwords along with master password hash code and than calls the setup function to set a new password.

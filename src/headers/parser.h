@@ -8,6 +8,7 @@
 #include "help.h"
 #include "delete.h"
 #include "clear.h"
+#include "reset.h"
 
 /**
  * @brief function creates a options struct, goes through all arguments and sets the appropriate
