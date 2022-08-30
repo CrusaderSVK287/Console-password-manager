@@ -4,6 +4,7 @@ void command_clear(struct options* opts, int argc, char** args) {
     if(!are_options_valid(false,false,true,false,opts)) {
         return;
     }
+    if(opts->help) help_command_clear();
 
     printf("Warning, this action will delete all stored passwords NOT specified as arguments, to proceed please enter the master password\n");
     if(!check_password()) {
@@ -17,7 +18,7 @@ void command_clear(struct options* opts, int argc, char** args) {
         while ((dir = readdir(d)) != NULL) {
             if( strcmp(dir->d_name, ".") == 0 ||
                 strcmp(dir->d_name, "..") == 0 ||
-                strcmp(dir->d_name, "master_password_hash_code") == 0) {
+                strcmp(dir->d_name, MASTER_PASSWORD_FILE_NAME) == 0) {
                     continue;
                 }
  

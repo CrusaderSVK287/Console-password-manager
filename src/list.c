@@ -13,7 +13,7 @@ void command_list(struct options* opt) {
         while ((dir = readdir(d)) != NULL) {
             if( strcmp(dir->d_name, ".") == 0 ||
                 strcmp(dir->d_name, "..") == 0 ||
-                strcmp(dir->d_name, "master_password_hash_code") == 0) {
+                strcmp(dir->d_name, MASTER_PASSWORD_FILE_NAME) == 0) {
                     continue;
                 } 
             bool protected = !(strstr(dir->d_name,"_PROTECT") == NULL);
