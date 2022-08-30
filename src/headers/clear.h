@@ -4,6 +4,8 @@
 #include "defines.h"
 #include "help.h"
 #include "options.h"
+#include "password.h"
+#include <dirent.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
