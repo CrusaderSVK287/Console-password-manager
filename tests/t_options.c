@@ -1,4 +1,5 @@
 #include "greatest.h"
+#include "../src/new.c"
 #include "../src/parser.c"
 
 TEST parse_options_args_null_return_null() {

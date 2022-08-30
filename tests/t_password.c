@@ -1,5 +1,9 @@
 #include "greatest.h"
 #include "../src/password.c"
+#include "../src/help.c"
+#include "../src/list.c"
+#include "../src/delete.c"
+#include "../src/defines.c"
 #include "../lib/sha-256.c"
 
 TEST password_not_valid_return_false() {
