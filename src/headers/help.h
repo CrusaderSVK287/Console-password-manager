@@ -21,5 +21,6 @@ void help_command_new();
 void help_command_list();
 void help_command_delete();
 void help_command_clear();
+void help_command_reset();
 
 #endif

@@ -9,6 +9,7 @@ void command_help(struct options* opt) {
     help_command_list();
     help_command_delete();
     help_command_clear();
+    help_command_reset();
 }
 
 void help_command_help() {
@@ -50,5 +51,13 @@ void help_command_clear() {
     printf("\tDeletes ALL stored passwords, no mater whether protected or not. To prevent a deletion of a certain passoword, you need to\n\t"
     "specify the name of the password(s) in arguments. Use like this: \"clear password_to_keep keep_2 keep_3...\"\n\t"
     "Command asks you to for your master password so you can check for any errors.\n\tOptitional flags:\n\t");
+    printf("%s-h --help :%s Shows the help page for this command\n\n",STRC_YELLOW,STRC_DEFAULT);
+}
+
+void help_command_reset() {
+    printf("%sCommand:%s reset\n",STRC_CYAN,STRC_DEFAULT);
+    printf("\tThis command is used to change the master password.\n\t"
+    "When invoked, it requires the old master passoword. Next, all protected passwords will be deleted, without exception.\n\t"
+    "User is than required to set a new master password.\n\tOptitional flags:\n\t");
     printf("%s-h --help :%s Shows the help page for this command\n\n",STRC_YELLOW,STRC_DEFAULT);
 }
