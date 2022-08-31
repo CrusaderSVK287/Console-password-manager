@@ -4,6 +4,7 @@
 extern SUITE(options);
 extern SUITE(password);
 extern SUITE(clear);
+extern SUITE(cypher);
 
 GREATEST_MAIN_DEFS();
 
@@ -13,6 +14,7 @@ int run_tests() {
     RUN_SUITE(options);
     RUN_SUITE(password);
     RUN_SUITE(clear);
+    RUN_SUITE(cypher);
 
     return greatest_all_passed();
 }

@@ -1,6 +1,9 @@
 #include "greatest.h"
 #include "../src/new.c"
 #include "../src/parser.c"
+#include "../src/reset.c"
+#include "../src/setup.c"
+
 
 TEST parse_options_args_null_return_null() {
     ASSERT_EQ(NULL,parse_options(5,NULL));
