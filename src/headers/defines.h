@@ -18,6 +18,9 @@
 #define PASSL_DECENT 2
 #define PASSL_STRONG 3
 
+#define KEY "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+#define KEY_LENGHT 32
+
 /**
  * @brief Function replaces old chars with new in the given string
  * 
