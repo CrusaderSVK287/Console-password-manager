@@ -39,14 +39,14 @@ void command_new(struct options* opts) {
     }
 
     printf("Enter your password (max 128 characters long): ");
-    //char* plain_password = get_input(128);
-
+    char* plain_password = get_input(128);
     FILE* file = fopen(file_name,"wb");
-    //char* encrypted = encrypt(plain_password);
-    //fprintf(file,encrypted);
+    unsigned char* encrypted = encrypt(plain_password);
+    fwrite(encrypted, sizeof(char), strlen(encrypted), file);
     fclose(file);
 
     free(tmp);
     free(file_name);
     free(name);
+    free(encrypted);
 }

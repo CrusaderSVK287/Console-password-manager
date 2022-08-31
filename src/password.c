@@ -1,6 +1,7 @@
 #include "headers/password.h"
 
 char* get_input(int lenght) {
+    fflush(stdin);
     char* out = calloc(lenght+1,sizeof(char));
     out[lenght] = 0x00;
     fgets(out,lenght,stdin);
