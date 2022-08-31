@@ -7,6 +7,9 @@
 #include <math.h>
 #include <string.h>
 
+
+
+
 /**
  * @brief Function encrypts the given password and returns a pointer to the encrypted string
  * 
