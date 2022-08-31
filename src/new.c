@@ -21,7 +21,7 @@ void command_new(struct options* opts) {
     }
 
     char* file_name = calloc(128+24+8,sizeof(char));
-    strncpy(file_name,".password_manager_data/",24);
+    strncpy(file_name, DATA_DIR_SLASH, 24);
     strcat(file_name, name);
     string_replace(file_name,' ','_');
 

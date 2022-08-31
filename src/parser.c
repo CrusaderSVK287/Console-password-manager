@@ -60,6 +60,6 @@ void run_command(int argc, char** args, struct options* opt) {
     if(strcmp(args[1], "delete") == 0) return command_delete(args, argc, opt);  // delete
     if(strcmp(args[1], "clear") == 0) return command_clear(args, argc, opt);    // clear
     if(strcmp(args[1], "reset") == 0) return command_reset(opt);                // reset
-    //if(strcmp(args[1], "new") == 0) new();// get
+    if(strcmp(args[1], "get") == 0) return command_get(opt);                    // get
     fprintf(stderr, "Command %s%s%s is not recognised, use command \"help\" to see all available commands\n",STRC_CYAN,args[1],STRC_DEFAULT);
 }
