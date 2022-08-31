@@ -1,7 +1,7 @@
 ### VARIABLES ###
 
 CC := gcc
-CFLAGS := -Wall -std=c11 -g -MMD -MP -fprofile-arcs -ftest-coverage
+CFLAGS := -Wall -lm -std=c11 -g -MMD -MP -fprofile-arcs -ftest-coverage
 LDFLAGS := -lgcov --coverage
 
 CFILES := src/*.c lib/*.c
