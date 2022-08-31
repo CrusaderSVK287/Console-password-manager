@@ -4,7 +4,7 @@ void command_get(struct options* opts) {
     if(!are_options_valid(true,false,true,false, opts)) {
         return;
     }
-    //if(opts->help) help_command_get();
+    if(opts->help) help_command_get();
     if(opts->list) {
         struct options tmp = {
             .force = false,

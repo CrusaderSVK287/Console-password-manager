@@ -6,6 +6,7 @@ void command_help(struct options* opt) {
     }
     help_command_help();
     help_command_new();
+    help_command_get();
     help_command_list();
     help_command_delete();
     help_command_clear();
@@ -14,7 +15,8 @@ void command_help(struct options* opt) {
 
 void help_command_help() {
     printf("%sCommand:%s help\n",STRC_CYAN,STRC_DEFAULT);
-    printf("\tThis command prints help pages for all commands.\n\tOptitional flags: NONE\n\n");
+    printf("\tThis command prints help pages for all commands.\n\tThe 3 top most ones (including this one) are the most important.\n\t"
+    "Optitional flags: NONE\n\n");
 }
 
 void help_command_new() {
@@ -25,6 +27,15 @@ void help_command_new() {
     "\tUser is than prompted to enter the password to be stored. Password is then encrypted and stored.\n\tOptitional flags: \n\t");
     printf("%s-l --list :%s Shows list of names of all currently stored passwords\n\t",STRC_YELLOW,STRC_DEFAULT);
     printf("%s-p --protect :%s Protects your password by requiring the master password in order to access it\n\t",STRC_YELLOW,STRC_DEFAULT);
+    printf("%s-h --help :%s Shows the help page for this command\n\n",STRC_YELLOW,STRC_DEFAULT);
+}
+
+void help_command_get() {
+    printf("%sCommand:%s get\n",STRC_CYAN,STRC_DEFAULT);
+    printf("\tThis command gets your stored password, decrypts it and shows it in plain text. It is used when you want to access one of the\n\t"
+    "stored passwords. Command will ask the user for the password name. If the password is protected, user needs to type in the master password.\n\t"
+    "There is no going around this check.\n\tOptitional flags:\n\t");
+    printf("%s-l --list :%s Shows list of names of all currently stored passwords\n\t",STRC_YELLOW,STRC_DEFAULT);
     printf("%s-h --help :%s Shows the help page for this command\n\n",STRC_YELLOW,STRC_DEFAULT);
 }
 
