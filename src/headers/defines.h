@@ -1,3 +1,6 @@
+#ifndef DEFINES_H
+#define DEFINES_H
+
 #define STRC_BLACK "\033[0;30m"
 #define STRC_RED "\033[0;31m"
 #define STRC_GREEN "\033[0;32m"
@@ -22,6 +25,8 @@
 #define KEY "IZUTJRHDGFGHKHILUZUTZFJRHGFQFWQF"    //USED FOR DEBUGGING WITH "RANDOM" KEY!!!
 #define KEY_LENGHT 32
 
+#include <string.h>
+
 /**
  * @brief Function replaces old chars with new in the given string
  * 
@@ -30,3 +35,12 @@
  * @param new char to be put in the place of old chars
  */
 void string_replace(char* str, char old, char new);
+
+/**
+ * @brief reverses the given string
+ * 
+ * @param str input string
+ */
+void string_reverse(char* str);
+
+#endif
