@@ -17,6 +17,7 @@ unsigned char* encrypt(char* password_to_encrypt) {
 
     string_reverse(password_to_encrypt);
     int lenght = strlen(password_to_encrypt);
+
     int offset_table_index = 0;
     for (size_t i = 0; i < lenght; i++) {
         offset_table_index += KEY[offset_table_index % KEY_LENGHT];
@@ -90,6 +91,7 @@ char* decrypt(unsigned char* password_to_decrypt) {
         offset_table_index += KEY[offset_table_index % KEY_LENGHT];
         result[i] -= KEY[i % KEY_LENGHT] % OFFSET_TABLE[offset_table_index % 127];
     }
+
     string_reverse(result);
     return result;
 }

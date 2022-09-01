@@ -1,8 +1,13 @@
+.DEFAULT_GOAL := release
+
 ### VARIABLES ###
 
+#compiler
 CC := gcc
-CFLAGS := -Wall -lm -std=c11 -g -MMD -MP -fprofile-arcs -ftest-coverage
-LDFLAGS := -lgcov --coverage
+#normal flags
+CFLAGS := -Wall -lm -std=c11
+#debug flags
+LDFLAGS := -lgcov --coverage -g -MMD -MP -fprofile-arcs -ftest-coverage
 
 CFILES := src/*.c lib/*.c
 OBJECT_FILES := *.o
@@ -10,14 +15,14 @@ OBJECT_FILES := *.o
 TEST_CFILES := tests/*.c
 TEST_OBJECT_FILES := t_*.o
 
-ARGS?=   
+ARGS?=
 
 ### MAIN PROGRAM ###
 
 #builds program into the build folder and runs it
 program:
 	@make obj
-	$(CC) $(OBJECT_FILES) $(CFLAGS) -o build/build.out
+	$(CC) $(OBJECT_FILES) $(CFLAGS) $(LDFLAGS) -o build/build.out
 	@echo ---------------
 	@./build/build.out $(ARGS)
 	@echo ---------------
@@ -66,3 +71,19 @@ memory:
 	@make obj
 	$(CC) $(OBJECT_FILES) $(CFLAGS) -o build/build.out
 	@make cleanup
+
+#############################################################################################
+#																							#
+#	   This part contains the make target for release build, without the debug flags		#
+#																							#
+#############################################################################################
+
+release:
+	@make obj
+	$(CC) $(CFILES) $(CFLAGS) -c
+	$(CC) $(OBJECT_FILES) $(CFLAGS) -o build/Password_manager.out
+	@make cleanup
+	@echo " "
+	@echo "-------------------------------------------------------------------------"
+	@echo "Compilation was successfull. The binary can be found in the build folder"
+	@echo "-------------------------------------------------------------------------"

@@ -21,9 +21,16 @@
 #define PASSL_DECENT 2
 #define PASSL_STRONG 3
 
-//#define KEY "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-#define KEY "IZUTJRHDGFGHKHILUZUTZFJRHGFQFWQF"    //USED FOR DEBUGGING WITH "RANDOM" KEY!!!
-#define KEY_LENGHT 32
+//************************************************************
+//             CHANGE THIS KEY TO A CUSTOM ONE
+//************************************************************
+
+#define KEY "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+//************************************************************
+
+//#define KEY "IZUTJRHDGFGHKHILUZUTZFJRHGFQFWQF"    //USED FOR DEBUGGING WITH "RANDOM" KEY!!! DO NOT USE AS YOUR OWN !!!
+#define KEY_LENGHT 32   //must match the lenght of KEY
 
 #include <string.h>
 
