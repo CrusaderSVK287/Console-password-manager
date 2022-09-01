@@ -24,4 +24,10 @@ void help_command_delete();
 void help_command_clear();
 void help_command_reset();
 
+/**
+ * @brief shows information about program
+ * 
+ */
+void help_about();
+
 #endif

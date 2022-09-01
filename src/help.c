@@ -11,6 +11,15 @@ void command_help(struct options* opt) {
     help_command_delete();
     help_command_clear();
     help_command_reset();
+    help_about();
+}
+
+void help_about() {
+    printf("C Console Password manager. Original creator: Lukáš Belán.\n"
+    "Version 1.0.0 - Initial release\n"
+    "Feel free to make changes to this project. Repository for this project is located at "
+    "%shttps://github.com/CrusaderSVK287/Console-password-manager%s\n", STRC_CYAN, STRC_DEFAULT);
+    printf("Also feel free to submit any issue in case it arrises\n");
 }
 
 void help_command_help() {
