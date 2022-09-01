@@ -52,7 +52,7 @@ void command_get(struct options* opts) {
     int size = ftell(file);
     rewind(file);
 
-    char* encrypted = calloc(size+1,sizeof(char));
+    unsigned char* encrypted = calloc(size+1,sizeof(char));
     fread(encrypted,sizeof(char),size,file);
     encrypted[size] = 0x00;
     char* decrypted = decrypt(encrypted);

@@ -1,5 +1,8 @@
 #include "headers/new.h"
 
+//strlen for unsigned char* to avoid warning
+size_t unsigned_strlen(unsigned char* s);
+
 void command_new(struct options* opts) {
     if(!are_options_valid(true,false,true,true,opts)) {
         return;
@@ -42,11 +45,19 @@ void command_new(struct options* opts) {
     char* plain_password = get_input(128);
     FILE* file = fopen(file_name,"wb");
     unsigned char* encrypted = encrypt(plain_password);
-    fwrite(encrypted, sizeof(char), strlen(encrypted), file);
+    fwrite(encrypted, sizeof(char), unsigned_strlen(encrypted), file);
     fclose(file);
 
     free(tmp);
     free(file_name);
     free(name);
     free(encrypted);
+}
+
+size_t unsigned_strlen(unsigned char* s) {
+    size_t i = 0;
+    while (s+i != 0x00) {
+        i++;
+    }
+    return i;
 }
