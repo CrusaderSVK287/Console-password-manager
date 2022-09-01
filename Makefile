@@ -79,7 +79,6 @@ memory:
 #############################################################################################
 
 release:
-	@make obj
 	$(CC) $(CFILES) $(CFLAGS) -c
 	$(CC) $(OBJECT_FILES) $(CFLAGS) -o build/Password_manager.out
 	@make cleanup
