@@ -31,8 +31,8 @@ void help_command_help() {
 void help_command_new() {
     printf("%sCommand:%s new\n",STRC_CYAN,STRC_DEFAULT);
     printf("\tThis command goes through the process of storing new password. User is prompted to type the name of the password.\n\t"
-    "This is the name by which the password will be stored, later can be recovered with command \"get password_name\".\n\tNote that this name cannot "
-    "contain spaces, use _ instead.\n"
+    "This is the name by which the password will be stored, later can be recovered with command \"get password_name\".\n\t"
+    "Note that all spaces will be replaced with '_'. Therefore, if you type \"test one\", it will become automatically test_one \n"
     "\tUser is than prompted to enter the password to be stored. Password is then encrypted and stored.\n\tOptitional flags: \n\t");
     printf("%s-l --list :%s Shows list of names of all currently stored passwords\n\t",STRC_YELLOW,STRC_DEFAULT);
     printf("%s-p --protect :%s Protects your password by requiring the master password in order to access it\n\t",STRC_YELLOW,STRC_DEFAULT);
@@ -43,7 +43,7 @@ void help_command_get() {
     printf("%sCommand:%s get\n",STRC_CYAN,STRC_DEFAULT);
     printf("\tThis command gets your stored password, decrypts it and shows it in plain text. It is used when you want to access one of the\n\t"
     "stored passwords. Command will ask the user for the password name. If the password is protected, user needs to type in the master password.\n\t"
-    "There is no going around this check.\n\tOptitional flags:\n\t");
+    "There is no going around this check.\n\tNote that you dont need to write spaces as underscores. You can type \"test one\" and it will be interpreted as test_one.\n\tOptitional flags:\n\t");
     printf("%s-l --list :%s Shows list of names of all currently stored passwords\n\t",STRC_YELLOW,STRC_DEFAULT);
     printf("%s-h --help :%s Shows the help page for this command\n\n",STRC_YELLOW,STRC_DEFAULT);
 }
