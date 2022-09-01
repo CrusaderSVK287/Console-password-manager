@@ -81,7 +81,7 @@ memory:
 release:
 	$(CC) $(CFILES) $(CFLAGS) -c
 	$(CC) $(OBJECT_FILES) $(CFLAGS) -o build/Password_manager.out
-	@make cleanup
+	@make cleanup --no-print-directory
 	@echo " "
 	@echo "-------------------------------------------------------------------------"
 	@echo "Compilation was successfull. The binary can be found in the build folder"
